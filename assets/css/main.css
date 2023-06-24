@@ -1847,10 +1847,13 @@ article:last-child {
 
 /* Image */
 
+.profile {
+	border-radius: 50%;
+}
+
 .image {
 	display: inline-block;
 	border: 0;
-	border-radius: 40%;
 }
 
 .image img {
