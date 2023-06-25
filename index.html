@@ -8,6 +8,36 @@
 			content="width=device-width, initial-scale=1, user-scalable=no"
 		/>
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js"></script>
+		<script>
+			(function () {
+				emailjs.init('chrischan8551@gmail.com');
+			})();
+
+			function sendEmail(event) {
+				event.preventDefault();
+
+				emailjs
+					.sendForm(
+						'service_ujobq5q',
+
+						event.target
+					)
+					.then(function (response) {
+						console.log(
+							'Email sent successfully:',
+							response.status,
+							response.text
+						);
+						event.target.reset();
+						alert('Email sent successfully!');
+					})
+					.catch(function (error) {
+						console.error('Error sending email:', error);
+						alert('Error sending email. Please try again later.');
+					});
+			}
+		</script>
 	</head>
 	<body class="is-preload">
 		<!-- Header -->
@@ -87,7 +117,7 @@
 					</li>
 					<li>
 						<a
-							href="mailto:example@example.com"
+							href="mailto:chrischan8551@gmail.com"
 							class="icon solid fa-envelope"
 							><span class="label">Email</span></a
 						>
@@ -300,7 +330,7 @@
 						Phone, Email, or LinkedIn.
 					</p>
 
-					<form method="post" action="javascript:sendEmail(event)">
+					<form method="post" action="#",onsubmit="sendEmail(event)">
 						<div class="row">
 							<div class="col-6 col-12-mobile">
 								<input
@@ -348,37 +378,5 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
-		<script src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js"></script>
-		<script>
-			(function () {
-				emailjs.init('chrischan8551@gmail.com');
-			})();
-		</script>
-		<script>
-			function sendEmail(event) {
-				event.preventDefault();
-
-				emailjs
-					.sendForm(
-						'service_ujobq5q',
-						<!-- 'YOUR_TEMPLATE_ID', -->
-						event.target
-					)
-					.then(function (response) {
-						console.log(
-							'Email sent successfully:',
-							response.status,
-							response.text
-						);
-						// Reset the form after successful submission
-						event.target.reset();
-						alert('Email sent successfully!');
-					})
-					.catch(function (error) {
-						console.error('Error sending email:', error);
-						alert('Error sending email. Please try again later.');
-					});
-			}
-		</script>
 	</body>
 </html>
