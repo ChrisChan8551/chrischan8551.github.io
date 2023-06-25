@@ -8,11 +8,7 @@
 			content="width=device-width, initial-scale=1, user-scalable=no"
 		/>
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<style>
-			.phone-number {
-				display: none;
-			}
-		</style>
+		<script src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js"></script>
 	</head>
 	<body class="is-preload">
 		<!-- Header -->
@@ -89,30 +85,13 @@
 							><span class="label">Email</span></a
 						>
 					</li>
-					<ul>
-						<li>
-							<a
-								href="#"
-								class="fa-regular fa-phone"
-								onclick="togglePhoneNumber(event)"
-							>
-								<span class="label">Phone</span>
-							</a>
-						</li>
-					</ul>
-					<p class="phone-number">(832) 659-7048</p>
-
-					<script>
-						function togglePhoneNumber(event) {
-							event.preventDefault(); // Prevent default link behavior
-							var phoneNumber =
-								document.querySelector('.phone-number');
-							phoneNumber.style.display =
-								phoneNumber.style.display === 'none'
-									? 'block'
-									: 'none';
-						}
-					</script>
+					<li>
+						<a
+							href="832-659-7048"
+							class="icon fa-regular fa-phone"
+							><span class="label">Phone</span></a
+						>
+					</li>
 				</ul>
 			</div>
 		</div>
