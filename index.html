@@ -101,6 +101,18 @@
 						</li>
 					</ul>
 					<p class="phone-number">(832) 659-7048</p>
+
+					<script>
+						function togglePhoneNumber(event) {
+							event.preventDefault(); // Prevent default link behavior
+							var phoneNumber =
+								document.querySelector('.phone-number');
+							phoneNumber.style.display =
+								phoneNumber.style.display === 'none'
+									? 'block'
+									: 'none';
+						}
+					</script>
 				</ul>
 			</div>
 		</div>
