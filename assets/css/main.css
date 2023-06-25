@@ -1862,7 +1862,7 @@ article:last-child {
 .image.avatar48 {
 	width: 55px;
 	height: 55px;
-	background: #f00;
+	/* background: #f00; */
 
 }
 
