@@ -64,7 +64,7 @@
 				<!-- Social Icons -->
 				<ul class="icons">
 					<li>
-						<a href="#" class="icon brands fa-twitter"
+						<a href="#" class="icon brands fa-linkedin-in"
 							><span class="label">Twitter</span></a
 						>
 					</li>
@@ -74,7 +74,9 @@
 						>
 					</li>
 					<li>
-						<a href="#" class="icon brands fa-github"
+						<a
+							href="https://www.linkedin.com/in/chris-chan-94567289/"
+							class="icon brands fa-github"
 							><span class="label">Github</span></a
 						>
 					</li>
@@ -84,7 +86,9 @@
 						>
 					</li>
 					<li>
-						<a href="#" class="icon solid fa-envelope"
+						<a
+							href="mailto:example@example.com"
+							class="icon solid fa-envelope"
 							><span class="label">Email</span></a
 						>
 					</li>
@@ -296,7 +300,7 @@
 						Phone, Email, or LinkedIn.
 					</p>
 
-					<form method="post" action="#">
+					<form method="post" action="javascript:sendEmail(event)">
 						<div class="row">
 							<div class="col-6 col-12-mobile">
 								<input
@@ -344,5 +348,37 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+		<script src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js"></script>
+		<script>
+			(function () {
+				emailjs.init('chrischan8551@gmail.com');
+			})();
+		</script>
+		<script>
+			function sendEmail(event) {
+				event.preventDefault();
+
+				emailjs
+					.sendForm(
+						'service_ujobq5q',
+						<!-- 'YOUR_TEMPLATE_ID', -->
+						event.target
+					)
+					.then(function (response) {
+						console.log(
+							'Email sent successfully:',
+							response.status,
+							response.text
+						);
+						// Reset the form after successful submission
+						event.target.reset();
+						alert('Email sent successfully!');
+					})
+					.catch(function (error) {
+						console.error('Error sending email:', error);
+						alert('Error sending email. Please try again later.');
+					});
+			}
+		</script>
 	</body>
 </html>
