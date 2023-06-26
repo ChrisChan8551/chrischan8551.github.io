@@ -56,7 +56,13 @@
 									>Contact</span
 								></a
 							>
-							<li><a href="images/chan_chris_resume.pdf">Resume</a></li>
+						</li>
+						<li>
+							<a href="" id="resume-link"
+								><span class="icon solid fa-download"
+									>Resume</span
+								></a
+							>
 						</li>
 					</ul>
 				</nav>
@@ -65,7 +71,6 @@
 			<div class="bottom">
 				<!-- Social Icons -->
 				<ul class="icons">
-
 					<li>
 						<a
 							href="https://github.com/ChrisChan8551"
@@ -271,7 +276,6 @@
 					<p>Please feel free to contact me.</p>
 					<p>
 						<i class="fa fa-mobile"> (832) 659-7048</i>
-						
 					</p>
 					<form
 						action="https://formspree.io/f/mrgwzegv"
@@ -302,6 +306,33 @@
 		</div>
 
 		<!-- Scripts -->
+		<script>
+			document
+				.getElementById('resume-link')
+				.addEventListener('click', function (event) {
+					event.preventDefault(); // Prevent default navigation behavior
+
+					// Fetch the resume file
+					fetch('images/chan_chris_resume.pdf')
+						.then((response) => response.blob())
+						.then((blob) => {
+							// Create a temporary URL for the resume file
+							var url = window.URL.createObjectURL(blob);
+
+							// Create a temporary link element
+							var link = document.createElement('a');
+							link.href = url;
+							link.download = 'chan_chris_resume.pdf';
+
+							// Programmatically click the link to initiate the download
+							link.click();
+
+							// Clean up the temporary URL and link
+							window.URL.revokeObjectURL(url);
+							link.remove();
+						});
+				});
+		</script>
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrolly.min.js"></script>
 		<script src="assets/js/jquery.scrollex.min.js"></script>
