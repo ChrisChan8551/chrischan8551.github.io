@@ -301,7 +301,6 @@
 			<!-- Copyright -->
 			<ul class="copyright">
 				<li>&copy; Chris Chan. All rights reserved.</li>
-				<!-- <li>Design: <a href="http://html5up.net">HTML5 UP</a></li> -->
 			</ul>
 		</div>
 
@@ -310,24 +309,15 @@
 			document
 				.getElementById('resume-link')
 				.addEventListener('click', function (event) {
-					event.preventDefault(); // Prevent default navigation behavior
-
-					// Fetch the resume file
+					event.preventDefault();
 					fetch('images/chan_chris_resume.pdf')
 						.then((response) => response.blob())
 						.then((blob) => {
-							// Create a temporary URL for the resume file
 							var url = window.URL.createObjectURL(blob);
-
-							// Create a temporary link element
 							var link = document.createElement('a');
 							link.href = url;
 							link.download = 'chan_chris_resume.pdf';
-
-							// Programmatically click the link to initiate the download
 							link.click();
-
-							// Clean up the temporary URL and link
 							window.URL.revokeObjectURL(url);
 							link.remove();
 						});
