@@ -124,6 +124,12 @@
 						<a href="#portfolio" class="button scrolly"
 							>My Projects</a
 						>
+
+						<a href="" id="resume-link2"
+							><span class="icon solid fa-download button scrolly"
+								>Resume</span
+							></a
+						>
 					</footer>
 				</div>
 			</section>
@@ -308,6 +314,24 @@
 		<script>
 			document
 				.getElementById('resume-link')
+				.addEventListener('click', function (event) {
+					event.preventDefault();
+					fetch('images/chan_chris_resume.pdf')
+						.then((response) => response.blob())
+						.then((blob) => {
+							var url = window.URL.createObjectURL(blob);
+							var link = document.createElement('a');
+							link.href = url;
+							link.download = 'chan_chris_resume.pdf';
+							link.click();
+							window.URL.revokeObjectURL(url);
+							link.remove();
+						});
+				});
+		</script>
+		<script>
+			document
+				.getElementById('resume-link2')
 				.addEventListener('click', function (event) {
 					event.preventDefault();
 					fetch('images/chan_chris_resume.pdf')
